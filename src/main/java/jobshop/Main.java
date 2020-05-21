@@ -32,17 +32,40 @@ public class Main {
         solvers.put("greedyEST_LPT", new GreedySolver(GreedySolver.Priority.EST_LPT));
         solvers.put("greedyEST_SRPT", new GreedySolver(GreedySolver.Priority.EST_SRPT));
         solvers.put("greedyEST_LRPT", new GreedySolver(GreedySolver.Priority.EST_LRPT));
-        solvers.put("glouton", new Gloutonne(Gloutonne.Priority.EST_LRPT));
-        solvers.put("gloutonSPT", new Gloutonne(Gloutonne.Priority.SPT));
-        solvers.put("gloutonLPT", new Gloutonne(Gloutonne.Priority.LPT));
-        solvers.put("gloutonSRPT", new Gloutonne(Gloutonne.Priority.SRPT));
-        solvers.put("gloutonLRPT", new Gloutonne(Gloutonne.Priority.LRPT));
-        solvers.put("gloutonEST_SPT", new Gloutonne(Gloutonne.Priority.EST_SPT));
-        solvers.put("gloutonEST_LPT", new Gloutonne(Gloutonne.Priority.EST_LPT));
-        solvers.put("gloutonEST_SRPT", new Gloutonne(Gloutonne.Priority.EST_SRPT));
-        solvers.put("gloutonEST_LRPT", new Gloutonne(Gloutonne.Priority.EST_LRPT));
-        solvers.put("taboo", new TabooSolver());
-        solvers.put("descent", new DescentSolver());
+        solvers.put("descent", new DescentSolver(GreedySolver.Priority.EST_LRPT));
+        solvers.put("descentSPT", new DescentSolver(GreedySolver.Priority.SPT));
+        solvers.put("descentLPT", new DescentSolver(GreedySolver.Priority.LPT));
+        solvers.put("descentSRPT", new DescentSolver(GreedySolver.Priority.SRPT));
+        solvers.put("descentLRPT", new DescentSolver(GreedySolver.Priority.LRPT));
+        solvers.put("descentEST_SPT", new DescentSolver(GreedySolver.Priority.EST_SPT));
+        solvers.put("descentEST_LPT", new DescentSolver(GreedySolver.Priority.EST_LPT));
+        solvers.put("descentEST_SRPT", new DescentSolver(GreedySolver.Priority.EST_SRPT));
+        solvers.put("descentEST_LRPT", new DescentSolver(GreedySolver.Priority.EST_LRPT));
+        solvers.put("taboo", new TabooSolver(GreedySolver.Priority.EST_LRPT, 500, 10));
+        solvers.put("tabooSPT", new TabooSolver(GreedySolver.Priority.SPT, 100, 10));
+        solvers.put("tabooLPT", new TabooSolver(GreedySolver.Priority.LPT, 100, 10));
+        solvers.put("tabooSRPT", new TabooSolver(GreedySolver.Priority.SRPT, 100, 10));
+        solvers.put("tabooLRPT", new TabooSolver(GreedySolver.Priority.LRPT, 100, 10));
+        solvers.put("tabooEST_SPT", new TabooSolver(GreedySolver.Priority.EST_SPT, 100, 10));
+        solvers.put("tabooEST_LPT", new TabooSolver(GreedySolver.Priority.EST_LPT, 100, 10));
+        solvers.put("tabooEST_SRPT", new TabooSolver(GreedySolver.Priority.EST_SRPT, 100, 10));
+        solvers.put("tabooEST_LRPT", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 10));
+        solvers.put("taboo_1", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 1));
+        solvers.put("taboo_2", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 2));
+        solvers.put("taboo_3", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 3));
+        solvers.put("taboo_4", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 4));
+        solvers.put("taboo_5", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 5));
+        solvers.put("taboo_10", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 10));
+        solvers.put("taboo_20", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 20));
+        solvers.put("taboo_30", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 30));
+        solvers.put("taboo_40", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 40));
+        solvers.put("taboo_50", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 50));
+        solvers.put("taboo_100", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 100));
+        solvers.put("taboo_200", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 200));
+        solvers.put("taboo_300", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 300));
+        solvers.put("taboo_400", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 400));
+        solvers.put("taboo_500", new TabooSolver(GreedySolver.Priority.EST_LRPT, 100, 500));
+
     }
 
 
