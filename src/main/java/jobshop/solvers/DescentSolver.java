@@ -25,6 +25,12 @@ public class DescentSolver implements Solver {
      * Represent the task sequence : [(0,2) (2,1)]
      *
      * */
+    GreedySolver.Priority priority;
+
+    public DescentSolver(GreedySolver.Priority priority) {
+        this.priority = priority ;
+    }
+
     static class Block {
         /** machine on which the block is identified */
         final int machine;
@@ -81,11 +87,11 @@ public class DescentSolver implements Solver {
     @Override
     public Result solve(Instance instance, long deadline) {
         //initialisation
-        GreedySolver greedy = new GreedySolver(GreedySolver.Priority.EST_LRPT);
+        GreedySolver greedy = new GreedySolver(this.priority);
         Result s_star = greedy.solve(instance, deadline);
         // exploration des voisins successifs
         Boolean ameliorationPossible = true;
-        while (ameliorationPossible){
+        while (ameliorationPossible && deadline - System.currentTimeMillis() > 1){
             //Result s_prime = new Result(s_star.instance,s_star.schedule,s_star.cause);
             ResourceOrder resource_order_star = new ResourceOrder(s_star.schedule);
             ResourceOrder resource_order_prime = new ResourceOrder(s_star.schedule);
