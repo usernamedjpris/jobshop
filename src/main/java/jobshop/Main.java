@@ -32,6 +32,15 @@ public class Main {
         solvers.put("greedyEST_LPT", new GreedySolver(GreedySolver.Priority.EST_LPT));
         solvers.put("greedyEST_SRPT", new GreedySolver(GreedySolver.Priority.EST_SRPT));
         solvers.put("greedyEST_LRPT", new GreedySolver(GreedySolver.Priority.EST_LRPT));
+        solvers.put("grandom", new GreedySolver(GreedySolver.Priority.EST_LRPT,10));
+        solvers.put("grandomSPT", new GreedySolver(GreedySolver.Priority.SPT,10));
+        solvers.put("grandomLPT", new GreedySolver(GreedySolver.Priority.LPT,10));
+        solvers.put("grandomSRPT", new GreedySolver(GreedySolver.Priority.SRPT,10));
+        solvers.put("grandomLRPT", new GreedySolver(GreedySolver.Priority.LRPT,10));
+        solvers.put("grandomEST_SPT", new GreedySolver(GreedySolver.Priority.EST_SPT,10));
+        solvers.put("grandomEST_LPT", new GreedySolver(GreedySolver.Priority.EST_LPT,10));
+        solvers.put("grandomEST_SRPT", new GreedySolver(GreedySolver.Priority.EST_SRPT,10));
+        solvers.put("grandomEST_LRPT", new GreedySolver(GreedySolver.Priority.EST_LRPT,10));
         solvers.put("descent", new DescentSolver(GreedySolver.Priority.EST_LRPT));
         solvers.put("descentSPT", new DescentSolver(GreedySolver.Priority.SPT));
         solvers.put("descentLPT", new DescentSolver(GreedySolver.Priority.LPT));
