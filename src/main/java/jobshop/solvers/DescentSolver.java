@@ -92,19 +92,21 @@ public class DescentSolver implements Solver {
         // exploration des voisins successifs
         Boolean ameliorationPossible = true;
         while (ameliorationPossible && deadline - System.currentTimeMillis() > 1){
+            ameliorationPossible = false;
             //Result s_prime = new Result(s_star.instance,s_star.schedule,s_star.cause);
-            ResourceOrder resource_order_star = new ResourceOrder(s_star.schedule);
             ResourceOrder resource_order_prime = new ResourceOrder(s_star.schedule);
             List<Block> blocs = blocksOfCriticalPath(resource_order_prime);
             for (int i=0 ; i<blocs.size() ; i++){
                 List<Swap> swap = neighbors(blocs.get(i));
                 for (int j=0 ; j<swap.size() ; j++){
-                    swap.get(j).applyOn(resource_order_prime);
+                    // you were applying many changes on the same resource order, instead get a clean copy each time
+                    ResourceOrder candidate = resource_order_prime.copy();
+                    swap.get(j).applyOn(candidate);
+                    Schedule candidateSchedule = candidate.toSchedule();
                     // si on minimise l'objectif
-                    if (resource_order_prime.toSchedule().makespan() < resource_order_star.toSchedule().makespan()){
-                        s_star = new Result(instance, resource_order_prime.toSchedule(), s_star.cause);
-                    } else {
-                        ameliorationPossible = false;
+                    if (candidateSchedule != null && candidateSchedule.makespan() < s_star.schedule.makespan()){
+                        s_star = new Result(instance, candidateSchedule, s_star.cause);
+                        ameliorationPossible = true;
                     }
                 }
             }
